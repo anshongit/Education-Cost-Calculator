@@ -53,7 +53,7 @@ if res.total_course_cost > 0:
     st.info(
         f"Interest adds **{inr(res.total_interest)}** to your costs "
         f"(about **{extra_pct:.0f}%** on top of the course fees). "
-        f"Interest that builds up during the study period alone is "
+        f"Interest that builds up during the course and grace period is "
         f"**{inr(res.interest_during_moratorium)}**."
     )
 

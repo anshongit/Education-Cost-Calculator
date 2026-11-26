@@ -2,8 +2,6 @@
 
 A simple web app that shows students and parents what a degree will **really** cost once education-loan interest is included, not just the fees.
 
-> Minor Project, 7th Semester B.Tech CSE, VMSBUT Dehradun
-
 ![App screenshot](screenshots/education-cost-calculator_darkTheme.png)
 
 ## Problem statement
@@ -59,23 +57,34 @@ git clone https://github.com/anshongit/Education-Cost-Calculator.git
 cd Education-Cost-Calculator
 
 python -m venv .venv
-.venv\Scripts\activate        # Windows
-# source .venv/bin/activate   # macOS / Linux
+```
 
+Activate the environment using the command for your shell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+```cmd
+.venv\Scripts\activate.bat
+```
+
+```bash
+source .venv/bin/activate
+```
+
+Then install the dependencies and start the app:
+
+```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
 The app opens at `http://localhost:8501`.
 
-## Team
+## Author
 
-| Name | Role |
-|---|---|
-| Ansh Kumar | UI and development |
-| Ansh Kumar | Testing and validation |
-| Ansh Kumar | Report |
-| Ansh Kumar | Presentation and demo video |
+**Ansh Kumar** — Designed, developed, and tested this project independently.
 
 ## Future scope
 
