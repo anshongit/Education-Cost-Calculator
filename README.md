@@ -50,6 +50,10 @@ Education-Cost-Calculator/
 └── README.md
 ```
 
+## Live demo
+
+[Try the Education Cost Calculator](https://anshongit-education-cost-calculator-app-dmuke2.streamlit.app/)
+
 ## Run it locally
 
 ```bash
@@ -61,14 +65,17 @@ python -m venv .venv
 
 Activate the environment using the command for your shell:
 
+**PowerShell (Windows)**
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
+**CMD (Windows)**
 ```cmd
 .venv\Scripts\activate.bat
 ```
 
+**Bash (macOS/Linux)**
 ```bash
 source .venv/bin/activate
 ```
@@ -80,7 +87,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The app opens at `http://localhost:8501`.
+After running `streamlit run app.py`, open `http://localhost:8501` in your browser.
 
 ## Author
 
