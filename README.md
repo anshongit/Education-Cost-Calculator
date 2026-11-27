@@ -4,9 +4,9 @@ A simple web app that shows students and parents what a degree will **really** c
 
 ![App screenshot](screenshots/education-cost-calculator_inDarkTheme1.png)
 
-![App screenshot](screenshots/education-cost-calculator_indarkTheme2.png)
+![App screenshot](screenshots/education-cost-calculator_inDarkTheme2.png)
 
-![App screenshot](screenshots/education-cost-calculator_indarkTheme3.png)
+![App screenshot](screenshots/education-cost-calculator_inDarkTheme3.png)
 
 ## Problem statement
 
