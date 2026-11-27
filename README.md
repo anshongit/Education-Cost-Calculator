@@ -3,7 +3,9 @@
 A simple web app that shows students and parents what a degree will **really** cost once education-loan interest is included, not just the fees.
 
 ![App screenshot](screenshots/education-cost-calculator_inDarkTheme1.png)
+
 ![App screenshot](screenshots/education-cost-calculator_indarkTheme2.png)
+
 ![App screenshot](screenshots/education-cost-calculator_indarkTheme3.png)
 
 ## Problem statement
