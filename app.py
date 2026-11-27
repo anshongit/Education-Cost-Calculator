@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-from loan_calc import calculate, inr
+from loan_calc import calculate, emi_salary_percentage, inr
 
 st.set_page_config(page_title="Education Cost Calculator", page_icon="🎓", layout="wide")
 
@@ -31,6 +31,11 @@ with st.sidebar:
     grace = st.number_input("Grace months after course", min_value=0, value=6, step=1)
     repay_years = st.slider("Repayment period (years)", 1, 20, 10)
 
+    st.header("Affordability check")
+    starting_salary = st.number_input(
+        "Expected starting salary (annual ₹)", min_value=1, value=600000, step=25000
+    )
+
 yearly_cost = tuition + hostel + other
 moratorium = years * 12 + grace
 
@@ -47,6 +52,35 @@ c2.metric("Loan amount", inr(res.loan_amount))
 c3.metric("Monthly EMI", inr(res.emi))
 c4.metric("Real total cost", inr(res.total_cost_of_education),
           delta=f"+{inr(res.total_interest)} interest", delta_color="inverse")
+
+st.subheader("Can you afford the EMI?")
+salary_monthly = starting_salary / 12
+emi_salary_pct = emi_salary_percentage(res.emi, starting_salary)
+time_to_debt_free = years + grace / 12 + repay_years
+affordability_left, affordability_right = st.columns(2)
+affordability_left.metric("EMI / gross monthly starting salary", f"{emi_salary_pct:.1f}%")
+affordability_left.caption(
+    f"Based on an annual starting salary of {inr(starting_salary)} "
+    f"({inr(salary_monthly)} gross per month, before deductions)."
+)
+affordability_left.caption(
+    f"Uses {loan_pct}% loan coverage at {rate:.2f}% annual interest, "
+    f"{grace} grace months, and a {repay_years}-year repayment period."
+)
+affordability_right.metric("Time to debt-free from course start", f"{time_to_debt_free:.1f} years")
+affordability_right.caption(
+    f"Includes {years} years of study, {grace} months of grace, "
+    f"and {repay_years} years of repayment."
+)
+
+if emi_salary_pct >= 50:
+    st.error("High EMI burden: the EMI is at least 50% of your gross monthly starting salary.")
+elif emi_salary_pct >= 40:
+    st.warning("The EMI is 40–50% of your gross monthly starting salary; this may be difficult to manage.")
+elif res.loan_amount == 0:
+    st.info("No loan is planned, so there is no EMI to compare with your salary.")
+else:
+    st.success("The EMI is below 40% of your gross monthly starting salary.")
 
 if res.total_course_cost > 0:
     extra_pct = res.total_interest / res.total_course_cost * 100

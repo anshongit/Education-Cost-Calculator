@@ -21,6 +21,15 @@ def emi(principal: float, annual_rate_pct: float, months: int) -> float:
     return principal * r * factor / (factor - 1)
 
 
+def emi_salary_percentage(monthly_emi: float, annual_salary: float) -> float:
+    """Return monthly EMI as a percentage of gross monthly salary."""
+    if monthly_emi < 0:
+        raise ValueError("EMI cannot be negative")
+    if annual_salary <= 0:
+        raise ValueError("Annual salary must be positive")
+    return monthly_emi / (annual_salary / 12) * 100
+
+
 def moratorium_interest(yearly_disbursement: float, years: int,
                         annual_rate_pct: float, moratorium_months: int) -> float:
     """Simple interest accrued before repayment starts.

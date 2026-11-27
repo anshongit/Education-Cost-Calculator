@@ -14,6 +14,7 @@ Students applying for an education loan usually see only the tuition and hostel 
 - Choose how much of the cost the loan covers
 - Includes the **moratorium period** (interest that accrues during the course and grace period)
 - Calculates the monthly **EMI**, total interest, and the real total cost of education
+- Checks the EMI against an expected annual starting salary using the selected loan share, interest rate, grace period, and repayment term; warns at 40% and 50% of gross monthly salary and estimates time to debt-free from the start of the course
 - Charts for the cost breakdown and the loan balance over time
 - Month-by-month payback table, downloadable as CSV
 - Indian rupee formatting (₹12,50,000)
@@ -33,6 +34,14 @@ Students applying for an education loan usually see only the tuition and hostel 
 
 The EMI function also handles the 0% interest case, and the calculation logic has been checked against the standard EMI formula (₹10,00,000 at 9% for 10 years gives an EMI of about ₹12,667.58).
 
+The affordability percentage is monthly EMI divided by gross monthly starting salary. Its EMI reflects the selected loan share, annual interest rate, course plus grace-period interest, and repayment term. The debt-free estimate includes the course, grace period, and repayment period.
+
+Run the loan and affordability scenario tests with:
+
+```bash
+python -m unittest -v
+```
+
 ## Tech stack
 
 - **Python 3**
@@ -50,7 +59,7 @@ Education-Cost-Calculator/
 └── README.md
 ```
 
-## Live demo
+## Live app
 
 [Try the Education Cost Calculator](https://anshongit-education-cost-calculator-app-dmuke2.streamlit.app/)
 
