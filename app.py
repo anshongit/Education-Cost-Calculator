@@ -5,10 +5,10 @@ from loan_calc import calculate, emi_salary_percentage, inr
 
 st.set_page_config(page_title="Education Cost Calculator", page_icon="🎓", layout="wide")
 
-st.title("🎓 Education Cost Calculator")
+st.title("Education Cost Calculator")
 st.caption("Find out what your degree will really cost once loan interest is included.")
 
-# Illustrative sample values only (per year, in rupees). Replace with real figures from your college.
+# Illustrative sample values only (per year, in rupees) along with a custom preset.
 PRESETS = {
     "Custom": dict(tuition=100000, hostel=60000, other=40000),
     "Govt. engineering college (sample)": dict(tuition=80000, hostel=50000, other=30000),
